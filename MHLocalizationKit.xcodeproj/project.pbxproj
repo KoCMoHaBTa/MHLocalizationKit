@@ -8,7 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		30F1D4E91C8E272A004FEBE5 /* MHLocalizationKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 30F1D4E81C8E272A004FEBE5 /* MHLocalizationKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		30F1D4FC1C8E28A4004FEBE5 /* MHLocalizationKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D4FB1C8E28A4004FEBE5 /* MHLocalizationKit.swift */; };
+		30F1D5171C8F8E6A004FEBE5 /* NSBundle+SystemTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D5111C8F8E6A004FEBE5 /* NSBundle+SystemTracking.swift */; };
+		30F1D5181C8F8E6A004FEBE5 /* NSBundle+LanguageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D5121C8F8E6A004FEBE5 /* NSBundle+LanguageStorage.swift */; };
+		30F1D5191C8F8E6A004FEBE5 /* NSBundle+LanguageSwiftLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D5131C8F8E6A004FEBE5 /* NSBundle+LanguageSwiftLoad.swift */; };
+		30F1D51A1C8F8E6A004FEBE5 /* NSBundle+LanguageBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D5141C8F8E6A004FEBE5 /* NSBundle+LanguageBundle.swift */; };
+		30F1D51B1C8F8E6A004FEBE5 /* NSBundle+LanguageSwiftLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D5151C8F8E6A004FEBE5 /* NSBundle+LanguageSwiftLoad.m */; };
+		30F1D51C1C8F8E6A004FEBE5 /* NSBundle+LanguageSwiftLoad.h in Headers */ = {isa = PBXBuildFile; fileRef = 30F1D5161C8F8E6A004FEBE5 /* NSBundle+LanguageSwiftLoad.h */; };
+		30F1D51E1C8F8EA4004FEBE5 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D51D1C8F8EA4004FEBE5 /* Language.swift */; };
+		30F1D5201C8F8EB7004FEBE5 /* Language+NSLocale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D51F1C8F8EB7004FEBE5 /* Language+NSLocale.swift */; };
+		30F1D5281C8F8F56004FEBE5 /* MHLocalizationKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D5271C8F8F56004FEBE5 /* MHLocalizationKitTests.swift */; };
+		30F1D52A1C8F8F56004FEBE5 /* MHLocalizationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30F1D4E51C8E272A004FEBE5 /* MHLocalizationKit.framework */; };
+		30F1D5321C8F91CA004FEBE5 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D5311C8F91CA004FEBE5 /* Localizable.swift */; };
+		30F1D53D1C8F9250004FEBE5 /* UIViewController+LocalizableSwiftLoad.h in Headers */ = {isa = PBXBuildFile; fileRef = 30F1D53B1C8F9250004FEBE5 /* UIViewController+LocalizableSwiftLoad.h */; };
+		30F1D53E1C8F9250004FEBE5 /* UIViewController+LocalizableSwiftLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D53C1C8F9250004FEBE5 /* UIViewController+LocalizableSwiftLoad.m */; };
+		30F1D5401C8F9265004FEBE5 /* UIViewController+LocalizableSwiftLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D53F1C8F9265004FEBE5 /* UIViewController+LocalizableSwiftLoad.swift */; };
+		30F1D5421C8F96E6004FEBE5 /* LocalizableObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D5411C8F96E6004FEBE5 /* LocalizableObserver.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		30F1D52B1C8F8F56004FEBE5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30F1D4DC1C8E272A004FEBE5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30F1D4E41C8E272A004FEBE5;
+			remoteInfo = MHLocalizationKit;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		30F1D4E51C8E272A004FEBE5 /* MHLocalizationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MHLocalizationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -16,6 +42,23 @@
 		30F1D4EA1C8E272A004FEBE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30F1D4F01C8E274D004FEBE5 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		30F1D4F11C8E274D004FEBE5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		30F1D4FB1C8E28A4004FEBE5 /* MHLocalizationKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHLocalizationKit.swift; sourceTree = "<group>"; };
+		30F1D5111C8F8E6A004FEBE5 /* NSBundle+SystemTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+SystemTracking.swift"; sourceTree = "<group>"; };
+		30F1D5121C8F8E6A004FEBE5 /* NSBundle+LanguageStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+LanguageStorage.swift"; sourceTree = "<group>"; };
+		30F1D5131C8F8E6A004FEBE5 /* NSBundle+LanguageSwiftLoad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+LanguageSwiftLoad.swift"; sourceTree = "<group>"; };
+		30F1D5141C8F8E6A004FEBE5 /* NSBundle+LanguageBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+LanguageBundle.swift"; sourceTree = "<group>"; };
+		30F1D5151C8F8E6A004FEBE5 /* NSBundle+LanguageSwiftLoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+LanguageSwiftLoad.m"; sourceTree = "<group>"; };
+		30F1D5161C8F8E6A004FEBE5 /* NSBundle+LanguageSwiftLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+LanguageSwiftLoad.h"; sourceTree = "<group>"; };
+		30F1D51D1C8F8EA4004FEBE5 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		30F1D51F1C8F8EB7004FEBE5 /* Language+NSLocale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Language+NSLocale.swift"; sourceTree = "<group>"; };
+		30F1D5251C8F8F56004FEBE5 /* MHLocalizationKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MHLocalizationKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		30F1D5271C8F8F56004FEBE5 /* MHLocalizationKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHLocalizationKitTests.swift; sourceTree = "<group>"; };
+		30F1D5291C8F8F56004FEBE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30F1D5311C8F91CA004FEBE5 /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		30F1D53B1C8F9250004FEBE5 /* UIViewController+LocalizableSwiftLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LocalizableSwiftLoad.h"; sourceTree = "<group>"; };
+		30F1D53C1C8F9250004FEBE5 /* UIViewController+LocalizableSwiftLoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LocalizableSwiftLoad.m"; sourceTree = "<group>"; };
+		30F1D53F1C8F9265004FEBE5 /* UIViewController+LocalizableSwiftLoad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+LocalizableSwiftLoad.swift"; sourceTree = "<group>"; };
+		30F1D5411C8F96E6004FEBE5 /* LocalizableObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizableObserver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -23,6 +66,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30F1D5221C8F8F56004FEBE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30F1D52A1C8F8F56004FEBE5 /* MHLocalizationKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,6 +86,7 @@
 				30F1D4F11C8E274D004FEBE5 /* README.md */,
 				30F1D4F01C8E274D004FEBE5 /* LICENSE.md */,
 				30F1D4E71C8E272A004FEBE5 /* MHLocalizationKit */,
+				30F1D5261C8F8F56004FEBE5 /* MHLocalizationKitTests */,
 				30F1D4E61C8E272A004FEBE5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				30F1D4E51C8E272A004FEBE5 /* MHLocalizationKit.framework */,
+				30F1D5251C8F8F56004FEBE5 /* MHLocalizationKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,9 +104,56 @@
 			isa = PBXGroup;
 			children = (
 				30F1D4E81C8E272A004FEBE5 /* MHLocalizationKit.h */,
+				30F1D4FB1C8E28A4004FEBE5 /* MHLocalizationKit.swift */,
+				30F1D50F1C8F8E31004FEBE5 /* Language */,
+				30F1D5101C8F8E3B004FEBE5 /* NSBundle */,
+				30F1D5301C8F91AA004FEBE5 /* Localizable */,
 				30F1D4EA1C8E272A004FEBE5 /* Info.plist */,
 			);
 			path = MHLocalizationKit;
+			sourceTree = "<group>";
+		};
+		30F1D50F1C8F8E31004FEBE5 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				30F1D51D1C8F8EA4004FEBE5 /* Language.swift */,
+				30F1D51F1C8F8EB7004FEBE5 /* Language+NSLocale.swift */,
+			);
+			path = Language;
+			sourceTree = "<group>";
+		};
+		30F1D5101C8F8E3B004FEBE5 /* NSBundle */ = {
+			isa = PBXGroup;
+			children = (
+				30F1D5121C8F8E6A004FEBE5 /* NSBundle+LanguageStorage.swift */,
+				30F1D5141C8F8E6A004FEBE5 /* NSBundle+LanguageBundle.swift */,
+				30F1D5131C8F8E6A004FEBE5 /* NSBundle+LanguageSwiftLoad.swift */,
+				30F1D5161C8F8E6A004FEBE5 /* NSBundle+LanguageSwiftLoad.h */,
+				30F1D5151C8F8E6A004FEBE5 /* NSBundle+LanguageSwiftLoad.m */,
+				30F1D5111C8F8E6A004FEBE5 /* NSBundle+SystemTracking.swift */,
+			);
+			path = NSBundle;
+			sourceTree = "<group>";
+		};
+		30F1D5261C8F8F56004FEBE5 /* MHLocalizationKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				30F1D5271C8F8F56004FEBE5 /* MHLocalizationKitTests.swift */,
+				30F1D5291C8F8F56004FEBE5 /* Info.plist */,
+			);
+			path = MHLocalizationKitTests;
+			sourceTree = "<group>";
+		};
+		30F1D5301C8F91AA004FEBE5 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				30F1D5311C8F91CA004FEBE5 /* Localizable.swift */,
+				30F1D5411C8F96E6004FEBE5 /* LocalizableObserver.swift */,
+				30F1D53F1C8F9265004FEBE5 /* UIViewController+LocalizableSwiftLoad.swift */,
+				30F1D53B1C8F9250004FEBE5 /* UIViewController+LocalizableSwiftLoad.h */,
+				30F1D53C1C8F9250004FEBE5 /* UIViewController+LocalizableSwiftLoad.m */,
+			);
+			path = Localizable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -63,6 +163,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30F1D53D1C8F9250004FEBE5 /* UIViewController+LocalizableSwiftLoad.h in Headers */,
+				30F1D51C1C8F8E6A004FEBE5 /* NSBundle+LanguageSwiftLoad.h in Headers */,
 				30F1D4E91C8E272A004FEBE5 /* MHLocalizationKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,16 +190,38 @@
 			productReference = 30F1D4E51C8E272A004FEBE5 /* MHLocalizationKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		30F1D5241C8F8F56004FEBE5 /* MHLocalizationKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30F1D52D1C8F8F56004FEBE5 /* Build configuration list for PBXNativeTarget "MHLocalizationKitTests" */;
+			buildPhases = (
+				30F1D5211C8F8F56004FEBE5 /* Sources */,
+				30F1D5221C8F8F56004FEBE5 /* Frameworks */,
+				30F1D5231C8F8F56004FEBE5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				30F1D52C1C8F8F56004FEBE5 /* PBXTargetDependency */,
+			);
+			name = MHLocalizationKitTests;
+			productName = MHLocalizationKitTests;
+			productReference = 30F1D5251C8F8F56004FEBE5 /* MHLocalizationKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		30F1D4DC1C8E272A004FEBE5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Milen Halachev";
 				TargetAttributes = {
 					30F1D4E41C8E272A004FEBE5 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					30F1D5241C8F8F56004FEBE5 = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
 				};
@@ -115,12 +239,20 @@
 			projectRoot = "";
 			targets = (
 				30F1D4E41C8E272A004FEBE5 /* MHLocalizationKit */,
+				30F1D5241C8F8F56004FEBE5 /* MHLocalizationKitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		30F1D4E31C8E272A004FEBE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30F1D5231C8F8F56004FEBE5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -134,10 +266,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30F1D51E1C8F8EA4004FEBE5 /* Language.swift in Sources */,
+				30F1D5201C8F8EB7004FEBE5 /* Language+NSLocale.swift in Sources */,
+				30F1D5321C8F91CA004FEBE5 /* Localizable.swift in Sources */,
+				30F1D5191C8F8E6A004FEBE5 /* NSBundle+LanguageSwiftLoad.swift in Sources */,
+				30F1D51A1C8F8E6A004FEBE5 /* NSBundle+LanguageBundle.swift in Sources */,
+				30F1D5171C8F8E6A004FEBE5 /* NSBundle+SystemTracking.swift in Sources */,
+				30F1D51B1C8F8E6A004FEBE5 /* NSBundle+LanguageSwiftLoad.m in Sources */,
+				30F1D53E1C8F9250004FEBE5 /* UIViewController+LocalizableSwiftLoad.m in Sources */,
+				30F1D5401C8F9265004FEBE5 /* UIViewController+LocalizableSwiftLoad.swift in Sources */,
+				30F1D4FC1C8E28A4004FEBE5 /* MHLocalizationKit.swift in Sources */,
+				30F1D5421C8F96E6004FEBE5 /* LocalizableObserver.swift in Sources */,
+				30F1D5181C8F8E6A004FEBE5 /* NSBundle+LanguageStorage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30F1D5211C8F8F56004FEBE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30F1D5281C8F8F56004FEBE5 /* MHLocalizationKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		30F1D52C1C8F8F56004FEBE5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 30F1D4E41C8E272A004FEBE5 /* MHLocalizationKit */;
+			targetProxy = 30F1D52B1C8F8F56004FEBE5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		30F1D4EB1C8E272A004FEBE5 /* Debug */ = {
@@ -232,6 +392,25 @@
 		30F1D4EE1C8E272A004FEBE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MHLocalizationKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.KoCMoHaBTa.MHLocalizationKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		30F1D4EF1C8E272A004FEBE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -243,21 +422,27 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
-		30F1D4EF1C8E272A004FEBE5 /* Release */ = {
+		30F1D52E1C8F8F56004FEBE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = MHLocalizationKit/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				INFOPLIST_FILE = MHLocalizationKitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.KoCMoHaBTa.MHLocalizationKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.KoCMoHaBTa.MHLocalizationKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		30F1D52F1C8F8F56004FEBE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MHLocalizationKitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.KoCMoHaBTa.MHLocalizationKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -278,6 +463,14 @@
 			buildConfigurations = (
 				30F1D4EE1C8E272A004FEBE5 /* Debug */,
 				30F1D4EF1C8E272A004FEBE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		30F1D52D1C8F8F56004FEBE5 /* Build configuration list for PBXNativeTarget "MHLocalizationKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30F1D52E1C8F8F56004FEBE5 /* Debug */,
+				30F1D52F1C8F8F56004FEBE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
