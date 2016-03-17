@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		304BBC881C9B0E1600510257 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 304BBC8A1C9B0E1600510257 /* Localizable.strings */; };
 		30F1D4E91C8E272A004FEBE5 /* MHLocalizationKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 30F1D4E81C8E272A004FEBE5 /* MHLocalizationKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		30F1D4FC1C8E28A4004FEBE5 /* MHLocalizationKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D4FB1C8E28A4004FEBE5 /* MHLocalizationKit.swift */; };
 		30F1D5171C8F8E6A004FEBE5 /* NSBundle+SystemTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D5111C8F8E6A004FEBE5 /* NSBundle+SystemTracking.swift */; };
@@ -24,6 +25,9 @@
 		30F1D53E1C8F9250004FEBE5 /* UIViewController+LocalizableSwiftLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D53C1C8F9250004FEBE5 /* UIViewController+LocalizableSwiftLoad.m */; };
 		30F1D5401C8F9265004FEBE5 /* UIViewController+LocalizableSwiftLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D53F1C8F9265004FEBE5 /* UIViewController+LocalizableSwiftLoad.swift */; };
 		30F1D5421C8F96E6004FEBE5 /* LocalizableObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D5411C8F96E6004FEBE5 /* LocalizableObserver.swift */; };
+		30F1D5461C8F9B10004FEBE5 /* LanguageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D5451C8F9B10004FEBE5 /* LanguageTests.swift */; };
+		30F1D5481C8F9B21004FEBE5 /* NSBundleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D5471C8F9B21004FEBE5 /* NSBundleTests.swift */; };
+		30F1D54A1C8F9B2C004FEBE5 /* LocalizableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D5491C8F9B2C004FEBE5 /* LocalizableTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +41,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		304BBC891C9B0E1600510257 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		304BBC8B1C9B0E3400510257 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		304BBC8C1C9B0E3D00510257 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		304BBC8D1C9B0E4400510257 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		304BBC8E1C9B0E4800510257 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		304BBC931C9B0EA700510257 /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bg; path = bg.lproj/Localizable.strings; sourceTree = "<group>"; };
+		304BBC941C9B0EB000510257 /* az-AZ */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "az-AZ"; path = "az-AZ.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		304BBC951C9B0EB600510257 /* az */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = az; path = az.lproj/Localizable.strings; sourceTree = "<group>"; };
+		304BBC961C9B0EBA00510257 /* az-Cyrl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "az-Cyrl"; path = "az-Cyrl.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		304BBC971C9B0EBF00510257 /* az-Cyrl-AZ */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "az-Cyrl-AZ"; path = "az-Cyrl-AZ.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		30F1D4E51C8E272A004FEBE5 /* MHLocalizationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MHLocalizationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F1D4E81C8E272A004FEBE5 /* MHLocalizationKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHLocalizationKit.h; sourceTree = "<group>"; };
 		30F1D4EA1C8E272A004FEBE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +73,9 @@
 		30F1D53C1C8F9250004FEBE5 /* UIViewController+LocalizableSwiftLoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LocalizableSwiftLoad.m"; sourceTree = "<group>"; };
 		30F1D53F1C8F9265004FEBE5 /* UIViewController+LocalizableSwiftLoad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+LocalizableSwiftLoad.swift"; sourceTree = "<group>"; };
 		30F1D5411C8F96E6004FEBE5 /* LocalizableObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizableObserver.swift; sourceTree = "<group>"; };
+		30F1D5451C8F9B10004FEBE5 /* LanguageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageTests.swift; sourceTree = "<group>"; };
+		30F1D5471C8F9B21004FEBE5 /* NSBundleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSBundleTests.swift; sourceTree = "<group>"; };
+		30F1D5491C8F9B2C004FEBE5 /* LocalizableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizableTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +156,11 @@
 			isa = PBXGroup;
 			children = (
 				30F1D5271C8F8F56004FEBE5 /* MHLocalizationKitTests.swift */,
+				30F1D5451C8F9B10004FEBE5 /* LanguageTests.swift */,
+				30F1D5471C8F9B21004FEBE5 /* NSBundleTests.swift */,
+				30F1D5491C8F9B2C004FEBE5 /* LocalizableTests.swift */,
 				30F1D5291C8F8F56004FEBE5 /* Info.plist */,
+				304BBC8A1C9B0E1600510257 /* Localizable.strings */,
 			);
 			path = MHLocalizationKitTests;
 			sourceTree = "<group>";
@@ -232,6 +253,15 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"en-US",
+				"en-GB",
+				"zh-Hans",
+				"zh-Hant",
+				bg,
+				"az-AZ",
+				az,
+				"az-Cyrl",
+				"az-Cyrl-AZ",
 			);
 			mainGroup = 30F1D4DB1C8E272A004FEBE5;
 			productRefGroup = 30F1D4E61C8E272A004FEBE5 /* Products */;
@@ -256,6 +286,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				304BBC881C9B0E1600510257 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +317,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				30F1D5281C8F8F56004FEBE5 /* MHLocalizationKitTests.swift in Sources */,
+				30F1D5481C8F9B21004FEBE5 /* NSBundleTests.swift in Sources */,
+				30F1D54A1C8F9B2C004FEBE5 /* LocalizableTests.swift in Sources */,
+				30F1D5461C8F9B10004FEBE5 /* LanguageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +332,26 @@
 			targetProxy = 30F1D52B1C8F8F56004FEBE5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		304BBC8A1C9B0E1600510257 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				304BBC891C9B0E1600510257 /* en */,
+				304BBC8B1C9B0E3400510257 /* en-US */,
+				304BBC8C1C9B0E3D00510257 /* en-GB */,
+				304BBC8D1C9B0E4400510257 /* zh-Hans */,
+				304BBC8E1C9B0E4800510257 /* zh-Hant */,
+				304BBC931C9B0EA700510257 /* bg */,
+				304BBC941C9B0EB000510257 /* az-AZ */,
+				304BBC951C9B0EB600510257 /* az */,
+				304BBC961C9B0EBA00510257 /* az-Cyrl */,
+				304BBC971C9B0EBF00510257 /* az-Cyrl-AZ */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		30F1D4EB1C8E272A004FEBE5 /* Debug */ = {
@@ -465,6 +519,7 @@
 				30F1D4EF1C8E272A004FEBE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		30F1D52D1C8F8F56004FEBE5 /* Build configuration list for PBXNativeTarget "MHLocalizationKitTests" */ = {
 			isa = XCConfigurationList;
@@ -473,6 +528,7 @@
 				30F1D52F1C8F8F56004FEBE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
