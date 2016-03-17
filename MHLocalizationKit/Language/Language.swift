@@ -14,13 +14,24 @@ public struct Language {
     
     //designators
     public let code: String         //2-3 chars: en, bg, fr
-    public let script: String?      //4 chars: Cyrl, Latn, Arab
+    public let script: String?      //4-5 chars: Cyrl, Latn, Arab, POSIX
     public let region: String?      //2 chars: US, GB
     
+    private init(id: String, code: String, script: String?, region: String?) {
+     
+        self.id = id
+        self.code = code
+        self.script = script
+        self.region = region
+    }
+}
+
+extension Language {
+    
+    ///Do not use for custom languages, or have in mind that region is restricted to 2 chars for `code-region` `code-script` cases
     public init(id: String) {
         
         let id = id.stringByReplacingOccurrencesOfString("_", withString: "-")
-        self.id = id
         
         //create designators
         let code: String
@@ -36,7 +47,7 @@ public struct Language {
             fallthrough
         case 2:
             
-            if region == nil {
+            if region == nil && components[1].utf8.count == 2  {
                 
                 region = components[1]
             }
@@ -45,22 +56,21 @@ public struct Language {
                 script = components[1]
             }
             
+            
+            
             fallthrough
             
         default:
             code = components[0]
         }
         
-        self.code = code
-        self.script = script
-        self.region = region
+        self.init(id: id, code: code, script: script, region: region)
     }
+}
+
+extension Language {
     
     public init(code: String, script: String? = nil, region: String? = nil) {
-        
-        self.code = code
-        self.script = script
-        self.region = region
         
         //create id
         var id = code
@@ -75,7 +85,7 @@ public struct Language {
             id += "-\(region)"
         }
         
-        self.id = id
+        self.init(id: id, code: code, script: script, region: region)
     }
 }
 
