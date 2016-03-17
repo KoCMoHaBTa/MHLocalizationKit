@@ -13,29 +13,49 @@ class NSBundleTests: XCTestCase {
     override func setUp() {
         
         super.setUp()
+        
+        NSBundle.language = nil
+        
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
         
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        
+        NSBundle.language = nil
+        
         super.tearDown()
     }
     
-    func testExample() {
+    func testDefaultConfig() {
         
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssertNil(NSBundle.language)
+        NSBundle.language = "bg"
+        XCTAssertEqual(NSBundle.language, "bg")
     }
     
-    func testPerformanceExample() {
-        
-        // This is an example of a performance test case.
-        
-        self.measureBlock {
+    //supported languages should resolve to .lproj folders - we will test only some of them
+    func testSupportedLanguageBundle() {
+
+        {
+            $0.forEach {
+                
+                XCTAssertEqual(NSBundle(forClass: self.dynamicType).bundleForLanguage($0).bundleURL.lastPathComponent, "\($0.id).lproj")
+            }
             
-            // Put the code you want to measure the time of here.
-        }
+        }(["en", "en-US", "en_US", "en-GB", "bg", "az-Cyrl-AZ", "az-Cyrl", "az-AZ", "az"])
     }
     
+    //non supported languages should resolve to the main bundle
+    func testNonSupportedLanguageBundles() {
+        
+        {
+            $0.forEach {
+                
+                XCTAssertEqual(NSBundle(forClass: self.dynamicType).bundleForLanguage($0), NSBundle(forClass: self.dynamicType))
+            }
+            
+        }(["fr", "nonExistingLanguage"])
+    }
 }
