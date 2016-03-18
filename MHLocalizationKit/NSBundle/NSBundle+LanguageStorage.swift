@@ -52,7 +52,7 @@ extension NSBundle {
         
         var userInfo = [NSObject: AnyObject]()
         userInfo[LanguageKey.Old.rawValue] = nil
-        userInfo[LanguageKey.New.rawValue] = newValue as? AnyObject
+        userInfo[LanguageKey.New.rawValue] = newValue?.rawValue
         
         let notification = NSNotification(name: LanguageWillChangeNotificationName, object: nil, userInfo: userInfo)
         NSNotificationCenter.defaultCenter().postNotification(notification)
@@ -62,10 +62,10 @@ extension NSBundle {
     private static func didSetLanguage(oldValue: Language?) {
         
         var userInfo = [NSObject: AnyObject]()
-        userInfo[LanguageKey.Old.rawValue] = oldValue as? AnyObject
-        userInfo[LanguageKey.New.rawValue] = self.language as? AnyObject
+        userInfo[LanguageKey.Old.rawValue] = oldValue?.rawValue
+        userInfo[LanguageKey.New.rawValue] = self.language?.rawValue
         
-        let notification = NSNotification(name: LanguageWillChangeNotificationName, object: nil, userInfo: userInfo)
+        let notification = NSNotification(name: LanguageDidChangeNotificationName, object: nil, userInfo: userInfo)
         NSNotificationCenter.defaultCenter().postNotification(notification)
     }
     

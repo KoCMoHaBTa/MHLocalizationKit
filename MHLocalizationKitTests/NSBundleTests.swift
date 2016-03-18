@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import MHLocalizationKit
 
 class NSBundleTests: XCTestCase {
     
@@ -57,5 +58,56 @@ class NSBundleTests: XCTestCase {
             }
             
         }(["fr", "nonExistingLanguage"])
+    }
+    
+    func testLanguageChange() {
+        
+        self.performExpectation { (expectation) -> Void in
+            
+            {
+                $0.forEach {
+                    
+                    let providedLanguageID = $0
+                    
+                    expectation.addConditions(["\(providedLanguageID)-\(NSBundle.LanguageWillChangeNotificationName)", "\(providedLanguageID)-\(NSBundle.LanguageDidChangeNotificationName)"])
+                }
+                
+                $0.forEach {
+                    
+                    let providedLanguageID = $0
+                    let providedLanguage = Language(id: providedLanguageID)
+                    let expectedOldLanguage = NSBundle.language
+                    
+                    var o1: NSObjectProtocol!
+                    o1 = NSNotificationCenter.defaultCenter().addObserverForName(NSBundle.LanguageWillChangeNotificationName, object: nil, queue: nil, usingBlock: { (notification) -> Void in
+                        
+                        NSNotificationCenter.defaultCenter().removeObserver(o1, name: NSBundle.LanguageWillChangeNotificationName, object: nil)
+                        
+                        XCTAssertNotNil(notification)
+                        XCTAssertNotNil(notification.userInfo)
+                        XCTAssertNil(notification.userInfo?[NSBundle.LanguageKey.Old.rawValue])
+                        XCTAssertEqual(notification.userInfo?[NSBundle.LanguageKey.New.rawValue] as? String, providedLanguage.rawValue)
+                        
+                        expectation.fulfillCondition("\(providedLanguageID)-\(NSBundle.LanguageWillChangeNotificationName)")
+                    })
+                    
+                    var o2: NSObjectProtocol!
+                    o2 = NSNotificationCenter.defaultCenter().addObserverForName(NSBundle.LanguageDidChangeNotificationName, object: nil, queue: nil, usingBlock: { (notification) -> Void in
+                        
+                        NSNotificationCenter.defaultCenter().removeObserver(o2, name: NSBundle.LanguageDidChangeNotificationName, object: nil)
+                        
+                        XCTAssertNotNil(notification)
+                        XCTAssertNotNil(notification.userInfo)
+                        XCTAssertEqual(notification.userInfo?[NSBundle.LanguageKey.Old.rawValue] as? String, expectedOldLanguage?.rawValue)
+                        XCTAssertEqual(notification.userInfo?[NSBundle.LanguageKey.New.rawValue] as? String, providedLanguage.rawValue)
+                        
+                        expectation.fulfillCondition("\(providedLanguageID)-\(NSBundle.LanguageDidChangeNotificationName)")
+                    })
+                    
+                    NSBundle.language = providedLanguage
+                }
+                
+            }(["en", "en-US", "bg, az-Cyrl-AZ", "en_GB"])
+        }
     }
 }
