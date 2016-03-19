@@ -83,6 +83,21 @@ class MHLocalizationKitTests: XCTestCase {
         }(languages)
     }
     
+    func testNilLanguageString() {
+        
+        NSBundle.language = nil
+        let bundle = NSBundle(forClass: self.dynamicType)
+        
+        XCTAssertEqual(bundle.localizedStringForKey("test value", value: nil, table: nil), "en")
+        XCTAssertEqual(bundle.localizedStringForKey("test value in custom table", value: nil, table: "TestTable"), "en")
+        
+        XCTAssertEqual(bundle.localizedStringForKey("value that is not translated", value: nil, table: nil), "value that is not translated")
+        XCTAssertEqual(bundle.localizedStringForKey("value that is not translated", value: nil, table: "TestTable"), "value that is not translated")
+        
+        XCTAssertEqual(bundle.localizedStringForKey("value that is not translated", value: "zz1", table: nil), "zz1")
+        XCTAssertEqual(bundle.localizedStringForKey("value that is not translated", value: "zz2", table: "TestTable"), "zz2")
+    }
+    
     func testLanguageLookup() {
         
         XCTAssertEqual(LanguageLookup("en_GB", defaultLanguage: "bg", supportedLanguages: ["fr", "en", "en-GB", "en_US", "bg"]), "en-GB")
