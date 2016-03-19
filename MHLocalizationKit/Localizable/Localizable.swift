@@ -8,15 +8,15 @@
 
 import Foundation
 
-public protocol Localizable {
+public protocol Localizable: class {
 
-    func languageWillChange(old: Language?, new: Language?)
-    func languageDidChange(old: Language?, new: Language?)
+    func languageWillChange(newLanguage: Language?)
+    func languageDidChange(oldLanguage: Language?, newLanguage: Language?)
 }
 
 public extension Localizable {
     
-    func languageWillChange(old: Language?, new: Language?) {}
-    func languageDidChange(old: Language?, new: Language?) {}
+    func languageWillChange(newLanguage: Language?) {}
+    func languageDidChange(oldLanguage: Language?, newLanguage: Language?) {}
 }
 

@@ -27,7 +27,7 @@ extension XCTestExpectation {
     
     private struct AssociatedKeys {
         
-        static var conditionsKey = "gg"
+        static var conditionsKey = "XCTestExpectation.AssociatedKeys.conditionsKey"
     }
     
     public private(set) var conditions: [String: Bool] {

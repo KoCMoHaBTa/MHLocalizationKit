@@ -10,7 +10,7 @@ import Foundation
 
 internal class LocalizableObserver: NSObject {
     
-    let localizable: Localizable
+    private(set) weak var localizable: Localizable?
     private var _associatedKey: Character = " "
     
     deinit {
@@ -33,19 +33,33 @@ internal class LocalizableObserver: NSObject {
         objc_setAssociatedObject(localizable as? AnyObject, &_associatedKey, self, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
     
-    private func receivedLanguageWillChange(notification: NSNotification) {
+    private dynamic func receivedLanguageWillChange(notification: NSNotification) {
      
-        let old = notification.userInfo?[NSBundle.LanguageKey.Old.rawValue] as? Language
-        let new = notification.userInfo?[NSBundle.LanguageKey.New.rawValue] as? Language
+        var newLanguage: Language?
         
-        self.localizable.languageWillChange(old, new: new)
+        if let id = notification.userInfo?[NSBundle.LanguageKey.New.rawValue] as? String {
+           
+            newLanguage = Language(id: id)
+        }
+        
+        self.localizable?.languageWillChange(newLanguage)
     }
     
-    private func receivedLanguageDidChange(notification: NSNotification) {
+    private dynamic func receivedLanguageDidChange(notification: NSNotification) {
         
-        let old = notification.userInfo?[NSBundle.LanguageKey.Old.rawValue] as? Language
-        let new = notification.userInfo?[NSBundle.LanguageKey.New.rawValue] as? Language
+        var oldLanguage: Language?
+        var newLanguage: Language?
         
-        self.localizable.languageDidChange(old, new: new)
+        if let id = notification.userInfo?[NSBundle.LanguageKey.Old.rawValue] as? String {
+            
+            oldLanguage = Language(id: id)
+        }
+        
+        if let id = notification.userInfo?[NSBundle.LanguageKey.New.rawValue] as? String {
+            
+            newLanguage = Language(id: id)
+        }
+        
+        self.localizable?.languageDidChange(oldLanguage, newLanguage: newLanguage)
     }
 }
