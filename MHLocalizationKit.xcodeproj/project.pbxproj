@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		304BBC881C9B0E1600510257 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 304BBC8A1C9B0E1600510257 /* Localizable.strings */; };
 		304BBCA81C9C34B800510257 /* XCTestCase+Expectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304BBCA71C9C34B800510257 /* XCTestCase+Expectation.swift */; };
+		30534E9F1C9E0363009F69F0 /* TestTable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30534EA11C9E0363009F69F0 /* TestTable.strings */; };
 		30F1D4E91C8E272A004FEBE5 /* MHLocalizationKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 30F1D4E81C8E272A004FEBE5 /* MHLocalizationKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		30F1D4FC1C8E28A4004FEBE5 /* MHLocalizationKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D4FB1C8E28A4004FEBE5 /* MHLocalizationKit.swift */; };
 		30F1D5171C8F8E6A004FEBE5 /* NSBundle+SystemTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1D5111C8F8E6A004FEBE5 /* NSBundle+SystemTracking.swift */; };
@@ -53,6 +54,9 @@
 		304BBC961C9B0EBA00510257 /* az-Cyrl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "az-Cyrl"; path = "az-Cyrl.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		304BBC971C9B0EBF00510257 /* az-Cyrl-AZ */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "az-Cyrl-AZ"; path = "az-Cyrl-AZ.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		304BBCA71C9C34B800510257 /* XCTestCase+Expectation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Expectation.swift"; sourceTree = "<group>"; };
+		30534EA01C9E0363009F69F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TestTable.strings; sourceTree = "<group>"; };
+		30534EA21C9E036B009F69F0 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/TestTable.strings"; sourceTree = "<group>"; };
+		30534EA31C9E036C009F69F0 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/TestTable.strings"; sourceTree = "<group>"; };
 		30F1D4E51C8E272A004FEBE5 /* MHLocalizationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MHLocalizationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F1D4E81C8E272A004FEBE5 /* MHLocalizationKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHLocalizationKit.h; sourceTree = "<group>"; };
 		30F1D4EA1C8E272A004FEBE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 				30F1D5491C8F9B2C004FEBE5 /* LocalizableTests.swift */,
 				30F1D5291C8F8F56004FEBE5 /* Info.plist */,
 				304BBC8A1C9B0E1600510257 /* Localizable.strings */,
+				30534EA11C9E0363009F69F0 /* TestTable.strings */,
 			);
 			path = MHLocalizationKitTests;
 			sourceTree = "<group>";
@@ -290,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				304BBC881C9B0E1600510257 /* Localizable.strings in Resources */,
+				30534E9F1C9E0363009F69F0 /* TestTable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +359,16 @@
 				304BBC971C9B0EBF00510257 /* az-Cyrl-AZ */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		30534EA11C9E0363009F69F0 /* TestTable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30534EA01C9E0363009F69F0 /* en */,
+				30534EA21C9E036B009F69F0 /* en-US */,
+				30534EA31C9E036C009F69F0 /* en-GB */,
+			);
+			name = TestTable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

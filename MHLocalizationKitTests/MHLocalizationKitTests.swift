@@ -7,35 +7,79 @@
 //
 
 import XCTest
+@testable import MHLocalizationKit
 
 class MHLocalizationKitTests: XCTestCase {
     
     override func setUp() {
         
         super.setUp()
+        
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        NSBundle.language = nil
     }
     
     override func tearDown() {
         
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        
+        NSBundle.language = nil
+        
         super.tearDown()
     }
     
-    func testExample() {
+    func testLocalizedString() {
         
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
+        let languages: [Language] = ["en", "en-US", "en_US", "en-GB", "bg", "az-Cyrl-AZ", "az-Cyrl", "az-AZ", "az"]
         
-        // This is an example of a performance test case.
-        
-        self.measureBlock {
+        ;{
             
-            // Put the code you want to measure the time of here.
-        }
+            $0.forEach {
+                
+                NSBundle.language = $0
+                let bundle = NSBundle(forClass: self.dynamicType)
+                
+                XCTAssertEqual(bundle.localizedStringForKey("test value", value: nil, table: nil), $0.id)
+            }
+            
+        }(languages)
     }
     
+    func testLocalizedStringFromTable() {
+        
+        let languages: [Language] = ["en", "en-US", "en_US"]
+        
+        ;{
+            
+            $0.forEach {
+                
+                NSBundle.language = $0
+                let bundle = NSBundle(forClass: self.dynamicType)
+                
+                XCTAssertEqual(bundle.localizedStringForKey("test value in custom table", value: nil, table: "TestTable"), $0.id)
+            }
+            
+        }(languages)
+    }
+    
+    func testUntranslatedStrings() {
+        
+        let languages: [Language] = ["de"]
+        
+        ;{
+            
+            $0.forEach {
+                
+                NSBundle.language = $0
+                let bundle = NSBundle(forClass: self.dynamicType)
+                
+                XCTAssertEqual(bundle.localizedStringForKey("value that is not translated", value: nil, table: nil), "value that is not translated")
+                XCTAssertEqual(bundle.localizedStringForKey("value that is not translated", value: nil, table: "TestTable"), "value that is not translated")
+                
+                XCTAssertEqual(bundle.localizedStringForKey("value that is not translated", value: "zz1", table: nil), "zz1")
+                XCTAssertEqual(bundle.localizedStringForKey("value that is not translated", value: "zz2", table: "TestTable"), "zz2")
+            }
+            
+        }(languages)
+    }
 }

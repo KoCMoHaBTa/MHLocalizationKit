@@ -1,0 +1,9 @@
+/* 
+  TestTable.strings
+  MHLocalizationKit
+
+  Created by Milen Halachev on 3/19/16.
+  Copyright © 2016 Milen Halachev. All rights reserved.
+*/
+
+"test value in custom table" = "en-US";
