@@ -82,4 +82,12 @@ class MHLocalizationKitTests: XCTestCase {
             
         }(languages)
     }
+    
+    func testLanguageLookup() {
+        
+        XCTAssertEqual(LanguageLookup("en_GB", defaultLanguage: "bg", supportedLanguages: ["fr", "en", "en-GB", "en_US", "bg"]), "en-GB")
+        XCTAssertEqual(LanguageLookup("en_GB", defaultLanguage: "bg", supportedLanguages: ["fr", "de", "en-US", "en", "bg"]), "en_US")
+        XCTAssertEqual(LanguageLookup("en_GB", defaultLanguage: "bg", supportedLanguages: ["fr", "de", "en", "en-US", "bg"]), "en")
+        XCTAssertEqual(LanguageLookup("en_GB", defaultLanguage: "bg", supportedLanguages: ["fr", "de", "bg"]), "bg")
+    }
 }

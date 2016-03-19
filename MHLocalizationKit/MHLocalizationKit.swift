@@ -10,28 +10,23 @@ import Foundation
 
 //https://developer.apple.com/library/ios/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html
 
-//public func LanguageLookup(language: Language, defaultLanguage: Language, supportedLanguages: [Language]) -> Language {
-//    
-//    //lookup by id
-//    if let index = supportedLanguages.indexOf(language) {
-//        
-//        return supportedLanguages[index]
-//    }
-//    
-//    //lookup by code
-//    if let index = supportedLanguages.indexOf({ $0.code == language.code }) {
-//        
-//        return supportedLanguages[index]
-//    }
-//    
-//    return defaultLanguage
-//}
-
-//Language(id: "en-Latn_US").displayNameForLanguage("bg")
-//let language: Language = "en-GB"
-//language.displayNameOnLanguage("en")
-
-
+///performs a lookup for a given language among a collection of supported langauges with a default langauge as a fallback. Returns the given languages if founds, otherwise the default language.
+public func LanguageLookup(language: Language, defaultLanguage: Language, supportedLanguages: [Language]) -> Language {
+    
+    //lookup by id
+    if let index = supportedLanguages.indexOf(language) {
+        
+        return supportedLanguages[index]
+    }
+    
+    //lookup by code
+    if let index = supportedLanguages.indexOf({ $0.code == language.code }) {
+        
+        return supportedLanguages[index]
+    }
+    
+    return defaultLanguage
+}
 
 
 //some convenience NSLocalizaedString functions that are missing from ObjC world and will allow genstrings to work properly
