@@ -21,6 +21,12 @@ extension Language {
         
         return NSLocale(localeIdentifier: language.id).displayNameForKey(NSLocaleIdentifier, value: self.id)
     }
+    
+    ///The name of the language translated on its own
+    public var displayName: String? {
+        
+        return self.displayNameOnLanguage(self)
+    }
 }
 
 //MARK: - System Languages
