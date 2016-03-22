@@ -24,8 +24,8 @@ internal class LocalizableObserver: NSObject {
         
         super.init()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "receivedLanguageWillChange:", name: NSBundle.LanguageWillChangeNotificationName, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "receivedLanguageDidChange:", name: NSBundle.LanguageDidChangeNotificationName, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LocalizableObserver.receivedLanguageWillChange(_:)), name: NSBundle.LanguageWillChangeNotificationName, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LocalizableObserver.receivedLanguageDidChange(_:)), name: NSBundle.LanguageDidChangeNotificationName, object: nil)
     }
     
     func associate() {

@@ -12,8 +12,8 @@ extension UIViewController {
     
     public class func _localizable_swift_load() {
         
-        let original = class_getInstanceMethod(self, "viewDidLoad")
-        let modified = class_getInstanceMethod(self, "_localizable_viewDidLoad")
+        let original = class_getInstanceMethod(self, #selector(UIViewController.viewDidLoad))
+        let modified = class_getInstanceMethod(self, #selector(UIViewController._localizable_viewDidLoad))
         
         method_exchangeImplementations(original, modified)
     }

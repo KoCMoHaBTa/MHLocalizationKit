@@ -12,8 +12,8 @@ extension NSBundle {
     
     public class func _language_swift_load() {
         
-        let original = class_getInstanceMethod(self, "localizedStringForKey:value:table:")
-        let modified = class_getInstanceMethod(self, "_language_swift_localizedStringForKey:value:table:")
+        let original = class_getInstanceMethod(self, #selector(NSBundle.localizedStringForKey(_:value:table:)))
+        let modified = class_getInstanceMethod(self, #selector(NSBundle._language_swift_localizedStringForKey(_:value:table:)))
         
         method_exchangeImplementations(original, modified)
         
