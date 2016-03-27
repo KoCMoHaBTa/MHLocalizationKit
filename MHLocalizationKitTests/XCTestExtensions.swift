@@ -1,6 +1,6 @@
 //
-//  XCTestCase+Expectation.swift
-//  MHLocalizationKit
+//  XCTestExtensions.swift
+//  https://gist.github.com/KoCMoHaBTa/4ba07984d7c95822bc05
 //
 //  Created by Milen Halachev on 3/18/16.
 //  Copyright © 2016 Milen Halachev. All rights reserved.
@@ -38,7 +38,7 @@ extension XCTestExpectation {
         }
         
         set {
-         
+            
             objc_setAssociatedObject(self, &AssociatedKeys.conditionsKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
