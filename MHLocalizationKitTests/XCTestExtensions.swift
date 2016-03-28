@@ -18,7 +18,7 @@ extension XCTestCase {
         
         self.waitForExpectationsWithTimeout(timeout, handler: { (error) -> Void in
             
-            XCTAssertNil(error, "There should be no error")
+            XCTAssertNil(error, "Expectation Error")
         })
     }
 }
@@ -43,6 +43,19 @@ extension XCTestExpectation {
         }
     }
     
+    public var areAllConditionsFulfulled: Bool {
+        
+        for state in Array(self.conditions.values) {
+            
+            if state == false {
+                
+                return false
+            }
+        }
+        
+        return true
+    }
+    
     public func addConditions(conditions: [String]) {
         
         conditions.forEach { (condition) -> () in
@@ -53,16 +66,15 @@ extension XCTestExpectation {
     
     public func fulfillCondition(condition: String) {
         
+        XCTAssertNotNil(self.conditions[condition], "Cannot fulfil a non-exiting condition: \"\(condition)\"")
+        
         guard self.conditions[condition] == false else { return }
         
         self.conditions[condition] = true
         
-        for state in Array(self.conditions.values) {
+        guard self.areAllConditionsFulfulled else {
             
-            if state == false {
-                
-                return
-            }
+            return
         }
         
         self.fulfill()
