@@ -28,6 +28,8 @@ class LocalizableTests: XCTestCase {
         
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         
+        self.localizableObject.languageWillChange = nil
+        self.localizableObject.languageDidChange = nil
         self.localizableObject = nil
         NSBundle.language = nil
         
@@ -40,7 +42,7 @@ class LocalizableTests: XCTestCase {
             
             self.localizableObject.languageWillChange = { (obj: TestLocalizableViewController, newLanguage: Language?) -> Void in
                 
-                print("gay: \(obj.expectedNewLanguage) == \(newLanguage)")
+                print("languageWillChange: \(obj.expectedNewLanguage) == \(newLanguage)")
                 XCTAssertEqual(obj.expectedNewLanguage, newLanguage)
             }
             
@@ -57,17 +59,15 @@ class LocalizableTests: XCTestCase {
             
             let languages: [Language] = ["en", "bg", "en_US", "en-GB"]
             
+            //add the conditions
             expectation.addConditions(languages.map({ $0.id }))
             
-            ;{
+            //start testing
+            languages.forEach({ (language) in
                 
-                $0.forEach {
-                    
-                    self.localizableObject.reset(NSBundle.language, expectedNewLanguage: $0)
-                    NSBundle.language = $0
-                }
-                
-            }(languages)
+                self.localizableObject.reset(NSBundle.language, expectedNewLanguage: language)
+                NSBundle.language = language
+            })
         }
     }
 }
