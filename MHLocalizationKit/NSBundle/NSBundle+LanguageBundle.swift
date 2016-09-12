@@ -8,13 +8,13 @@
 
 import Foundation
 
-extension NSBundle {
+extension Bundle {
     
-    public class func bundleForLanguage(language: Language, inBundle bundle: NSBundle) -> NSBundle {
+    public class func bundle(for language: Language, in bundle: Bundle) -> Bundle {
         
         guard
-        let lproj = bundle.pathForResource(language.id, ofType: "lproj"),
-        let languageBundle = NSBundle(path: lproj)
+        let lproj = bundle.path(forResource: language.id, ofType: "lproj"),
+        let languageBundle = Bundle(path: lproj)
         else {
             
             //there is nothing else to try
@@ -24,14 +24,14 @@ extension NSBundle {
             }
             
             //try only with the code
-            return self.bundleForLanguage(Language(id: language.code), inBundle: bundle)
+            return self.bundle(for: Language(id: language.code), in: bundle)
         }
         
         return languageBundle
     }
     
-    public func bundleForLanguage(language: Language) -> NSBundle {
+    public func bundle(for language: Language) -> Bundle {
         
-        return self.dynamicType.bundleForLanguage(language, inBundle: self)
+        return type(of: self).bundle(for: language, in: self)
     }
 }

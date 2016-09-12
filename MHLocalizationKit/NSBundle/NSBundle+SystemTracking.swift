@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension NSBundle {
+extension Bundle {
     
     @nonobjc public static var TrackSystemLanguageChanges = false {
         
@@ -32,13 +32,13 @@ extension NSBundle {
         
         get {
         
-            return NSUserDefaults.standardUserDefaults().stringForKey(NSUserDefaultsSystemLanguageKey)
+            return UserDefaults.standard.string(forKey: NSUserDefaultsSystemLanguageKey)
         }
         
         set {
             
-            NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: NSUserDefaultsSystemLanguageKey)
-            NSUserDefaults.standardUserDefaults().synchronize()
+            UserDefaults.standard.set(newValue, forKey: NSUserDefaultsSystemLanguageKey)
+            UserDefaults.standard.synchronize()
         }
     }
     
@@ -49,24 +49,24 @@ extension NSBundle {
         
         get {
         
-            return NSUserDefaults.standardUserDefaults().stringForKey(NSUserDefaultsSystemLocaleKey)
+            return UserDefaults.standard.string(forKey: NSUserDefaultsSystemLocaleKey)
         }
         
         set {
             
-            NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: NSUserDefaultsSystemLocaleKey)
-            NSUserDefaults.standardUserDefaults().synchronize()
+            UserDefaults.standard.set(newValue, forKey: NSUserDefaultsSystemLocaleKey)
+            UserDefaults.standard.synchronize()
         }
     }
     
     private static var currentSystemLanguage: String? {
         
-        return NSLocale.preferredLanguages().first
+        return Locale.preferredLanguages.first
     }
     
     private static var currentSystemLocale: String? {
         
-        return NSLocale.currentLocale().localeIdentifier
+        return Locale.current.identifier
     }
     
     private static var systemLanguageHasChanged: Bool {
@@ -79,20 +79,31 @@ extension NSBundle {
         return self.currentSystemLocale != self.savedSystemLocale
     }
     
+    private static let applicationDidBecomeActiveObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil, using: { (notification) -> Void in
+        
+        Bundle.updateTracking()
+    })
+    
     internal static func updateTracking() {
         
         struct DispatchOnce {
             
-            static var token: dispatch_once_t = 0
+            private typealias Block = () -> Void
+            private static let blocks: [Block] = [
+                
+                {
+                    
+                }
+            ]
+            
+            static func execute() {
+                
+                
+            }
         }
         
-        dispatch_once(&DispatchOnce.token) {
-            
-            NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationDidBecomeActiveNotification, object: nil, queue: nil, usingBlock: { (notification) -> Void in
-                
-                self.updateTracking()
-            })
-        }
+        //since dispatch once is no longe available - we have to do it in this ungly way
+        let _ = applicationDidBecomeActiveObserver
         
         if TrackSystemLanguageChanges && self.systemLanguageHasChanged, let id = self.currentSystemLanguage {
             

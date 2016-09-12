@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension NSBundle {
+extension Bundle {
     
     @nonobjc public static let LanguageWillChangeNotificationName = "MHLocalizationKit.NSBundle.LanguageWillChangeNotificationName"
     @nonobjc public static let LanguageDidChangeNotificationName = "MHLocalizationKit.NSBundle.LanguageDidChangeNotificationName"
@@ -26,7 +26,7 @@ extension NSBundle {
         get {
         
         guard
-        let id = NSUserDefaults.standardUserDefaults().stringForKey(NSUserDefaultsLanguageKey)
+        let id = UserDefaults.standard.string(forKey: NSUserDefaultsLanguageKey)
         else {
         
         return nil
@@ -41,32 +41,32 @@ extension NSBundle {
             
             self.willSetLanguage(newValue)
             
-            NSUserDefaults.standardUserDefaults().setObject(newValue?.rawValue, forKey: NSUserDefaultsLanguageKey)
-            NSUserDefaults.standardUserDefaults().synchronize()
+            UserDefaults.standard.set(newValue?.rawValue, forKey: NSUserDefaultsLanguageKey)
+            UserDefaults.standard.synchronize()
             
             self.didSetLanguage(oldValue)
         }
     }
     
-    private static func willSetLanguage(newValue: Language?) {
+    private static func willSetLanguage(_ newValue: Language?) {
         
-        var userInfo = [NSObject: AnyObject]()
+        var userInfo = [AnyHashable: Any]()
         userInfo[LanguageKey.Old.rawValue] = nil
         userInfo[LanguageKey.New.rawValue] = newValue?.rawValue
         
-        let notification = NSNotification(name: LanguageWillChangeNotificationName, object: nil, userInfo: userInfo)
-        NSNotificationCenter.defaultCenter().postNotification(notification)
+        let notification = Notification(name: Notification.Name(rawValue: LanguageWillChangeNotificationName), object: nil, userInfo: userInfo)
+        NotificationCenter.default.post(notification)
     }
     
     
-    private static func didSetLanguage(oldValue: Language?) {
+    private static func didSetLanguage(_ oldValue: Language?) {
         
-        var userInfo = [NSObject: AnyObject]()
+        var userInfo = [AnyHashable: Any]()
         userInfo[LanguageKey.Old.rawValue] = oldValue?.rawValue
         userInfo[LanguageKey.New.rawValue] = self.language?.rawValue
         
-        let notification = NSNotification(name: LanguageDidChangeNotificationName, object: nil, userInfo: userInfo)
-        NSNotificationCenter.defaultCenter().postNotification(notification)
+        let notification = Notification(name: Notification.Name(rawValue: LanguageDidChangeNotificationName), object: nil, userInfo: userInfo)
+        NotificationCenter.default.post(notification)
     }
     
     

@@ -8,12 +8,12 @@
 
 import Foundation
 
-extension NSBundle {
+extension Bundle {
     
     public class func _language_swift_load() {
         
-        let original = class_getInstanceMethod(self, #selector(NSBundle.localizedStringForKey(_:value:table:)))
-        let modified = class_getInstanceMethod(self, #selector(NSBundle._language_swift_localizedStringForKey(_:value:table:)))
+        let original = class_getInstanceMethod(self, #selector(Bundle.localizedString(forKey:value:table:)))
+        let modified = class_getInstanceMethod(self, #selector(Bundle._language_swift_localizedString(forKey:value:table:)))
         
         method_exchangeImplementations(original, modified)
         
@@ -21,17 +21,17 @@ extension NSBundle {
     }
     
     //this where all the magic happens
-    public func _language_swift_localizedStringForKey(key: String, value: String?, table tableName: String?) -> String {
+    public func _language_swift_localizedString(forKey key: String, value: String?, table tableName: String?) -> String {
         
         guard
-            let language: Language = self.dynamicType.language
+            let language: Language = type(of: self).language
             else {
                 
-                return self._language_swift_localizedStringForKey(key, value: value, table: tableName)
+                return self._language_swift_localizedString(forKey: key, value: value, table: tableName)
         }
         
-        let bundle = self.bundleForLanguage(language)
+        let bundle = self.bundle(for: language)
         
-        return bundle._language_swift_localizedStringForKey(key, value: value, table: tableName)
+        return bundle._language_swift_localizedString(forKey: key, value: value, table: tableName)
     }
 }

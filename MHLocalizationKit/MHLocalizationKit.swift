@@ -11,7 +11,7 @@ import Foundation
 //https://developer.apple.com/library/ios/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html
 
 ///performs a lookup for a given language among a collection of supported langauges with a default langauge as a fallback. Returns the given languages if founds, otherwise the default language.
-public func LanguageLookup(language: Language, defaultLanguage: Language, supportedLanguages: [Language]) -> Language {
+public func LanguageLookup(_ language: Language, defaultLanguage: Language, supportedLanguages: [Language]) -> Language {
     
     if let index = supportedLanguages.indexOfLanguage(language) {
         
@@ -21,29 +21,29 @@ public func LanguageLookup(language: Language, defaultLanguage: Language, suppor
     return defaultLanguage
 }
 
-extension CollectionType where Generator.Element == Language {
+extension Collection where Iterator.Element == Language {
     
-    @warn_unused_result
-    public func indexOfLanguage(element: Self.Generator.Element) -> Self.Index? {
+    
+    public func indexOfLanguage(_ element: Self.Iterator.Element) -> Self.Index? {
         
         //lookup by id ?? code
-        return self.indexOf(element) ?? self.indexOf({ $0.code == element.code })
+        return self.index(of: element) ?? self.index(where: { $0.code == element.code })
     }
     
-    @warn_unused_result
-    public func containsLanguage(element: Self.Generator.Element) -> Bool {
+    
+    public func containsLanguage(_ element: Self.Iterator.Element) -> Bool {
         
         return self.indexOfLanguage(element) != nil
     }
 }
 
 //some convenience NSLocalizaedString functions that are missing from ObjC world and will allow genstrings to work properly
-public func NSLocalizedStringFromTable(key: String, _ tableName: String, _ comment: String) -> String {
+public func NSLocalizedStringFromTable(_ key: String, _ tableName: String, _ comment: String) -> String {
     
     return NSLocalizedString(key, tableName: tableName, comment: comment)
 }
 
-public func NSLocalizedStringWithDefaultValue(key: String, _ tableName: String, _ bundle: NSBundle, _ value: String, _ comment: String) -> String {
+public func NSLocalizedStringWithDefaultValue(_ key: String, _ tableName: String, _ bundle: Bundle, _ value: String, _ comment: String) -> String {
     
     return NSLocalizedString(key, tableName: tableName, bundle: bundle, value: value, comment: comment)
 }

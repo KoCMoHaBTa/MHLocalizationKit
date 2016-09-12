@@ -11,13 +11,13 @@ import XCTest
 
 class LocalizableTests: XCTestCase {
     
-    private var localizableObject: TestLocalizableViewController!
+    fileprivate var localizableObject: TestLocalizableViewController!
     
     override func setUp() {
         
         super.setUp()
         
-        NSBundle.language = nil
+        Bundle.language = nil
         self.localizableObject = TestLocalizableViewController()
         self.localizableObject.view.setNeedsLayout()
         
@@ -31,7 +31,7 @@ class LocalizableTests: XCTestCase {
         self.localizableObject.languageWillChange = nil
         self.localizableObject.languageDidChange = nil
         self.localizableObject = nil
-        NSBundle.language = nil
+        Bundle.language = nil
         
         super.tearDown()
     }
@@ -53,20 +53,20 @@ class LocalizableTests: XCTestCase {
                 
                 if let id = newLanguage?.id {
                     
-                    expectation.fulfillCondition(id)
+                    expectation.fulfill(condition: id)
                 }
             }
             
             let languages: [Language] = ["en", "bg", "en_US", "en-GB"]
             
             //add the conditions
-            expectation.addConditions(languages.map({ $0.id }))
+            expectation.add(conditions: languages.map({ $0.id }))
             
             //start testing
             languages.forEach({ (language) in
                 
-                self.localizableObject.reset(NSBundle.language, expectedNewLanguage: language)
-                NSBundle.language = language
+                self.localizableObject.reset(Bundle.language, expectedNewLanguage: language)
+                Bundle.language = language
             })
         }
     }
@@ -74,22 +74,22 @@ class LocalizableTests: XCTestCase {
 
 private class TestLocalizableViewController: UIViewController, Localizable {
 
-    private var expectedOldLanguage: Language?
-    private var expectedNewLanguage: Language?
-    private var languageWillChange: ((obj: TestLocalizableViewController, newLanguage: Language?) -> Void)?
-    private var languageDidChange: ((obj: TestLocalizableViewController, oldLanguage: Language?, newLanguage: Language?) -> Void)?
+    fileprivate var expectedOldLanguage: Language?
+    fileprivate var expectedNewLanguage: Language?
+    fileprivate var languageWillChange: ((_ obj: TestLocalizableViewController, _ newLanguage: Language?) -> Void)?
+    fileprivate var languageDidChange: ((_ obj: TestLocalizableViewController, _ oldLanguage: Language?, _ newLanguage: Language?) -> Void)?
     
-    private func languageWillChange(newLanguage: Language?) {
+    fileprivate func languageWillChange(_ newLanguage: Language?) {
         
-        self.languageWillChange?(obj: self, newLanguage: newLanguage)
+        self.languageWillChange?(self, newLanguage)
     }
     
-    private func languageDidChange(oldLanguage: Language?, newLanguage: Language?) {
+    fileprivate func languageDidChange(_ oldLanguage: Language?, newLanguage: Language?) {
         
-        self.languageDidChange?(obj: self, oldLanguage: oldLanguage, newLanguage: newLanguage)
+        self.languageDidChange?(self, oldLanguage, newLanguage)
     }
     
-    func reset(expectedOldLanguage: Language? = nil, expectedNewLanguage: Language? = nil) {
+    func reset(_ expectedOldLanguage: Language? = nil, expectedNewLanguage: Language? = nil) {
         
         self.expectedOldLanguage = expectedOldLanguage
         self.expectedNewLanguage = expectedNewLanguage
