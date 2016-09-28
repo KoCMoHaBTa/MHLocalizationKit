@@ -12,20 +12,20 @@ import Foundation
 
 extension Language {
     
-    public func displayNameForLanguage(language: Language) -> String? {
+    public func displayName(for language: Language) -> String? {
         
-        return NSLocale(localeIdentifier: self.id).displayNameForKey(NSLocaleIdentifier, value: language.id)
+        return (Locale(identifier: self.id) as NSLocale).displayName(forKey: NSLocale.Key.identifier, value: language.id)
     }
     
-    public func displayNameOnLanguage(language: Language) -> String? {
+    public func displayName(on language: Language) -> String? {
         
-        return NSLocale(localeIdentifier: language.id).displayNameForKey(NSLocaleIdentifier, value: self.id)
+        return (Locale(identifier: language.id) as NSLocale).displayName(forKey: NSLocale.Key.identifier, value: self.id)
     }
     
     ///The name of the language translated on its own
     public var displayName: String? {
         
-        return self.displayNameOnLanguage(self)
+        return self.displayName(on: self)
     }
 }
 
@@ -35,11 +35,11 @@ extension Language {
     
     public static var systemLanguage: Language {
         
-        return Language(id: NSLocale.currentLocale().localeIdentifier)
+        return Language(id: Locale.current.identifier)
     }
     
     public static var preferredSystemLanguages: [Language] {
         
-        return NSLocale.preferredLanguages().map({ Language(id: $0) })
+        return Locale.preferredLanguages.map({ Language(id: $0) })
     }
 }

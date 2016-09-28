@@ -10,12 +10,12 @@ import Foundation
 
 internal class LocalizableObserver: NSObject {
     
-    private(set) weak var localizable: Localizable?
+    private weak var localizable: Localizable?
     private var _associatedKey: Character = " "
     
     deinit {
         
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     init(localizable: Localizable) {
@@ -24,20 +24,20 @@ internal class LocalizableObserver: NSObject {
         
         super.init()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LocalizableObserver.receivedLanguageWillChange(_:)), name: NSBundle.LanguageWillChangeNotificationName, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LocalizableObserver.receivedLanguageDidChange(_:)), name: NSBundle.LanguageDidChangeNotificationName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LocalizableObserver.receivedLanguageWillChange(_:)), name: NSNotification.Name(rawValue: Bundle.LanguageWillChangeNotificationName), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LocalizableObserver.receivedLanguageDidChange(_:)), name: NSNotification.Name(rawValue: Bundle.LanguageDidChangeNotificationName), object: nil)
     }
     
     func associate() {
         
-        objc_setAssociatedObject(localizable as? AnyObject, &_associatedKey, self, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        objc_setAssociatedObject(self.localizable, &_associatedKey, self, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
     
-    private dynamic func receivedLanguageWillChange(notification: NSNotification) {
+    private dynamic func receivedLanguageWillChange(_ notification: Notification) {
      
         var newLanguage: Language?
         
-        if let id = notification.userInfo?[NSBundle.LanguageKey.New.rawValue] as? String {
+        if let id = (notification as NSNotification).userInfo?[Bundle.LanguageKey.New.rawValue] as? String {
            
             newLanguage = Language(id: id)
         }
@@ -45,17 +45,17 @@ internal class LocalizableObserver: NSObject {
         self.localizable?.languageWillChange(newLanguage)
     }
     
-    private dynamic func receivedLanguageDidChange(notification: NSNotification) {
+    private dynamic func receivedLanguageDidChange(_ notification: Notification) {
         
         var oldLanguage: Language?
         var newLanguage: Language?
         
-        if let id = notification.userInfo?[NSBundle.LanguageKey.Old.rawValue] as? String {
+        if let id = (notification as NSNotification).userInfo?[Bundle.LanguageKey.Old.rawValue] as? String {
             
             oldLanguage = Language(id: id)
         }
         
-        if let id = notification.userInfo?[NSBundle.LanguageKey.New.rawValue] as? String {
+        if let id = (notification as NSNotification).userInfo?[Bundle.LanguageKey.New.rawValue] as? String {
             
             newLanguage = Language(id: id)
         }

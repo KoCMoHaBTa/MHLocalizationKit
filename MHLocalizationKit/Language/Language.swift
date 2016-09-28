@@ -17,7 +17,7 @@ public struct Language {
     public let script: String?      //4-5 chars: Cyrl, Latn, Arab, POSIX
     public let region: String?      //2 chars: US, GB
     
-    private init(id: String, code: String, script: String?, region: String?) {
+    fileprivate init(id: String, code: String, script: String?, region: String?) {
      
         self.id = id
         self.code = code
@@ -31,14 +31,14 @@ extension Language {
     ///Do not use for custom languages, or have in mind that region is restricted to 2 chars for `code-region` `code-script` cases
     public init(id: String) {
         
-        let id = id.stringByReplacingOccurrencesOfString("_", withString: "-")
+        let id = id.replacingOccurrences(of: "_", with: "-")
         
         //create designators
         let code: String
         var script: String?
         var region: String?
         
-        let components = id.componentsSeparatedByString("-")
+        let components = id.components(separatedBy: "-")
         
         switch components.count {
             
@@ -130,7 +130,7 @@ extension Language: RawRepresentable {
 
 //MARK: - StringLiteralConvertible
 
-extension Language: StringLiteralConvertible {
+extension Language: ExpressibleByStringLiteral {
     
     public init(stringLiteral value: String) {
         
