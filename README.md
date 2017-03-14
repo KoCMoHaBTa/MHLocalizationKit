@@ -18,8 +18,8 @@ What this library does is, by using [method swizzling], to alter the default beh
 [embedding]:
 https://developer.apple.com/library/content/technotes/tn2435/_index.html#//apple_ref/doc/uid/DTS40017543-CH1-PROJ_CONFIG-APPS_WITH_MULTIPLE_XCODE_PROJECTS
 
-- using [Carthage]() by adding `github "KoCMoHaBTa/MHLocalizationKit"` to your `Cartfile`
-- by downloading and [embedding] the framework directly into your project
+- using [Carthage](https://github.com/Carthage/Carthage) by adding `github "KoCMoHaBTa/MHLocalizationKit"` to your `Cartfile`
+- by [downloading](releases) and [embedding] the framework directly into your project
 - using [submodules](http://git-scm.com/docs/git-submodule) and [embedding] the framework directly into your project
 
 ## How to use
