@@ -12,8 +12,6 @@ import Foundation
  Conform to the Localizable protocol in order to automatically receive langauge changes in your UIViewController.
     
  Using method swizzling, upon viewDidLoad and when a language changes, if a view controller is conforming to this protocol - it will automatically receive notifications trought the `languageWillChange` and the `languageDidChange` methods.
- 
- In order to keep these methods options, they have empty default implementation.
  */
 
 public protocol Localizable: class {
@@ -30,7 +28,7 @@ public protocol Localizable: class {
 
 public extension Localizable {
     
+    //default empty implementation makes this method optional
     func languageWillChange(to new: Language?) {}
-    func languageDidChange(from old: Language?, to new: Language?) {}
 }
 
