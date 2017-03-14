@@ -10,7 +10,8 @@ import Foundation
 
 extension Bundle {
     
-    @nonobjc public static var TrackSystemLanguageChanges = false {
+    ///Determines whenever to track system language changes. If true, when the system language is changed, upon opening the application, the bundle custom language will be changed to the new system language. Default to false.
+    @nonobjc public static var trackSystemLanguageChanges = false {
         
         didSet {
             
@@ -18,7 +19,8 @@ extension Bundle {
         }
     }
     
-    @nonobjc public static var TrackSystemLocaleChanges = false {
+    ///Determines whenever to track system locale changes. If true, when the system locale is changed, upon opening the application, the bundle custom language will be changed to the new system locale. Default to false.
+    @nonobjc public static var trackSystemLocaleChanges = false {
         
         didSet {
             
@@ -86,31 +88,15 @@ extension Bundle {
     
     internal static func updateTracking() {
         
-        struct DispatchOnce {
-            
-            private typealias Block = () -> Void
-            private static let blocks: [Block] = [
-                
-                {
-                    
-                }
-            ]
-            
-            static func execute() {
-                
-                
-            }
-        }
-        
         //since dispatch once is no longe available - we have to do it in this ungly way
         let _ = applicationDidBecomeActiveObserver
         
-        if TrackSystemLanguageChanges && self.systemLanguageHasChanged, let id = self.currentSystemLanguage {
+        if trackSystemLanguageChanges && self.systemLanguageHasChanged, let id = self.currentSystemLanguage {
             
             self.language = Language(id: id)
         }
         
-        if TrackSystemLocaleChanges && self.systemLocaleHasChanged, let id = self.currentSystemLocale {
+        if trackSystemLocaleChanges && self.systemLocaleHasChanged, let id = self.currentSystemLocale {
             
             self.language = Language(id: id)
         }

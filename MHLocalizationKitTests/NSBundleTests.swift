@@ -38,76 +38,73 @@ class NSBundleTests: XCTestCase {
     
     //supported languages should resolve to .lproj folders - we will test only some of them
     func testSupportedLanguageBundle() {
-
-        {
-            $0.forEach {
-                
-                XCTAssertEqual(Bundle(for: type(of: self)).bundle(for: $0).bundleURL.lastPathComponent, "\($0.id).lproj")
-            }
+        
+        let languages: [Language] = ["en", "en-US", "en_US", "en-GB", "bg", "az-Cyrl-AZ", "az-Cyrl", "az-AZ", "az"]
             
-        }(["en", "en-US", "en_US", "en-GB", "bg", "az-Cyrl-AZ", "az-Cyrl", "az-AZ", "az"])
+        languages.forEach {
+            
+            XCTAssertEqual(Bundle(for: type(of: self)).bundle(for: $0).bundleURL.lastPathComponent, "\($0.id).lproj")
+        }
     }
     
     //non supported languages should resolve to the main bundle
     func testNonSupportedLanguageBundles() {
-        
-        {
-            $0.forEach {
-                
-                XCTAssertEqual(Bundle(for: type(of: self)).bundle(for: $0), Bundle(for: type(of: self)))
-            }
+
+        let languages: [Language] = ["fr", "nonExistingLanguage"]
             
-        }(["fr", "nonExistingLanguage"])
+        languages.forEach {
+            
+            XCTAssertEqual(Bundle(for: type(of: self)).bundle(for: $0), Bundle(for: type(of: self)))
+        }
     }
     
     func testLanguageChange() {
         
         self.performExpectation { (expectation) -> Void in
             
-            {
-                $0.forEach {
-                    
-                    let providedLanguageID = $0
-                    
-                    expectation.add(conditions: ["\(providedLanguageID)-\(Bundle.LanguageWillChangeNotificationName)", "\(providedLanguageID)-\(Bundle.LanguageDidChangeNotificationName)"])
-                }
+            let languages = ["en", "en-US", "bg, az-Cyrl-AZ", "en_GB"]
+            
+            languages.forEach {
                 
-                $0.forEach {
-                    
-                    let providedLanguageID = $0
-                    let providedLanguage = Language(id: providedLanguageID)
-                    let expectedOldLanguage = Bundle.language
-                    
-                    var o1: NSObjectProtocol!
-                    o1 = NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: Bundle.LanguageWillChangeNotificationName), object: nil, queue: nil, using: { (notification) -> Void in
-                        
-                        NotificationCenter.default.removeObserver(o1, name: NSNotification.Name(rawValue: Bundle.LanguageWillChangeNotificationName), object: nil)
-                        
-                        XCTAssertNotNil(notification)
-                        XCTAssertNotNil((notification as NSNotification).userInfo)
-                        XCTAssertNil((notification as NSNotification).userInfo?[Bundle.LanguageKey.Old.rawValue])
-                        XCTAssertEqual((notification as NSNotification).userInfo?[Bundle.LanguageKey.New.rawValue] as? String, providedLanguage.rawValue)
-                        
-                        expectation.fulfill(condition: "\(providedLanguageID)-\(Bundle.LanguageWillChangeNotificationName)")
-                    })
-                    
-                    var o2: NSObjectProtocol!
-                    o2 = NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: Bundle.LanguageDidChangeNotificationName), object: nil, queue: nil, using: { (notification) -> Void in
-                        
-                        NotificationCenter.default.removeObserver(o2, name: NSNotification.Name(rawValue: Bundle.LanguageDidChangeNotificationName), object: nil)
-                        
-                        XCTAssertNotNil(notification)
-                        XCTAssertNotNil((notification as NSNotification).userInfo)
-                        XCTAssertEqual((notification as NSNotification).userInfo?[Bundle.LanguageKey.Old.rawValue] as? String, expectedOldLanguage?.rawValue)
-                        XCTAssertEqual((notification as NSNotification).userInfo?[Bundle.LanguageKey.New.rawValue] as? String, providedLanguage.rawValue)
-                        
-                        expectation.fulfill(condition: "\(providedLanguageID)-\(Bundle.LanguageDidChangeNotificationName)")
-                    })
-                    
-                    Bundle.language = providedLanguage
-                }
+                let providedLanguageID = $0
                 
-            }(["en", "en-US", "bg, az-Cyrl-AZ", "en_GB"])
+                expectation.add(conditions: ["\(providedLanguageID)-\(Bundle.LanguageWillChangeNotificationName)", "\(providedLanguageID)-\(Bundle.LanguageDidChangeNotificationName)"])
+            }
+            
+            languages.forEach {
+                
+                let providedLanguageID = $0
+                let providedLanguage = Language(id: providedLanguageID)
+                let expectedOldLanguage = Bundle.language
+                
+                var o1: NSObjectProtocol!
+                o1 = NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: Bundle.LanguageWillChangeNotificationName), object: nil, queue: nil, using: { (notification) -> Void in
+                    
+                    NotificationCenter.default.removeObserver(o1, name: NSNotification.Name(rawValue: Bundle.LanguageWillChangeNotificationName), object: nil)
+                    
+                    XCTAssertNotNil(notification)
+                    XCTAssertNotNil((notification as NSNotification).userInfo)
+                    XCTAssertNil((notification as NSNotification).userInfo?[Bundle.LanguageKey.old.rawValue])
+                    XCTAssertEqual((notification as NSNotification).userInfo?[Bundle.LanguageKey.new.rawValue] as? String, providedLanguage.rawValue)
+                    
+                    expectation.fulfill(condition: "\(providedLanguageID)-\(Bundle.LanguageWillChangeNotificationName)")
+                })
+                
+                var o2: NSObjectProtocol!
+                o2 = NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: Bundle.LanguageDidChangeNotificationName), object: nil, queue: nil, using: { (notification) -> Void in
+                    
+                    NotificationCenter.default.removeObserver(o2, name: NSNotification.Name(rawValue: Bundle.LanguageDidChangeNotificationName), object: nil)
+                    
+                    XCTAssertNotNil(notification)
+                    XCTAssertNotNil((notification as NSNotification).userInfo)
+                    XCTAssertEqual((notification as NSNotification).userInfo?[Bundle.LanguageKey.old.rawValue] as? String, expectedOldLanguage?.rawValue)
+                    XCTAssertEqual((notification as NSNotification).userInfo?[Bundle.LanguageKey.new.rawValue] as? String, providedLanguage.rawValue)
+                    
+                    expectation.fulfill(condition: "\(providedLanguageID)-\(Bundle.LanguageDidChangeNotificationName)")
+                })
+                
+                Bundle.language = providedLanguage
+            }
         }
     }
 }

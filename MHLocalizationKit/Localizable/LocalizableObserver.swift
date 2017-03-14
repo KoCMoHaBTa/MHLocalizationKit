@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal class LocalizableObserver: NSObject {
+class LocalizableObserver: NSObject {
     
     private weak var localizable: Localizable?
     private var _associatedKey: Character = " "
@@ -37,12 +37,12 @@ internal class LocalizableObserver: NSObject {
      
         var newLanguage: Language?
         
-        if let id = (notification as NSNotification).userInfo?[Bundle.LanguageKey.New.rawValue] as? String {
+        if let id = (notification as NSNotification).userInfo?[Bundle.LanguageKey.new.rawValue] as? String {
            
             newLanguage = Language(id: id)
         }
         
-        self.localizable?.languageWillChange(newLanguage)
+        self.localizable?.languageWillChange(to: newLanguage)
     }
     
     private dynamic func receivedLanguageDidChange(_ notification: Notification) {
@@ -50,16 +50,16 @@ internal class LocalizableObserver: NSObject {
         var oldLanguage: Language?
         var newLanguage: Language?
         
-        if let id = (notification as NSNotification).userInfo?[Bundle.LanguageKey.Old.rawValue] as? String {
+        if let id = (notification as NSNotification).userInfo?[Bundle.LanguageKey.old.rawValue] as? String {
             
             oldLanguage = Language(id: id)
         }
         
-        if let id = (notification as NSNotification).userInfo?[Bundle.LanguageKey.New.rawValue] as? String {
+        if let id = (notification as NSNotification).userInfo?[Bundle.LanguageKey.new.rawValue] as? String {
             
             newLanguage = Language(id: id)
         }
         
-        self.localizable?.languageDidChange(oldLanguage, newLanguage: newLanguage)
+        self.localizable?.languageDidChange(from: oldLanguage, to: newLanguage)
     }
 }

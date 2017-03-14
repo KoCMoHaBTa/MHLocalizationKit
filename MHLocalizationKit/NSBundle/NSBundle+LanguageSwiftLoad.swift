@@ -10,6 +10,8 @@ import Foundation
 
 extension Bundle {
     
+    ///Used to swizzle the Bundle's default implementation
+    ///- warning: Do not call this method directly!
     public class func _language_swift_load() {
         
         let original = class_getInstanceMethod(self, #selector(Bundle.localizedString(forKey:value:table:)))
@@ -20,14 +22,15 @@ extension Bundle {
         self.updateTracking()
     }
     
-    //this where all the magic happens
+    ///This where all the magic happens - if a language is set - override the default behavior and load translations based on the provided langauge.
+    ///- warning: Do not call this method directly!
     public func _language_swift_localizedString(forKey key: String, value: String?, table tableName: String?) -> String {
         
         guard
-            let language: Language = type(of: self).language
-            else {
-                
-                return self._language_swift_localizedString(forKey: key, value: value, table: tableName)
+        let language: Language = type(of: self).language
+        else {
+            
+            return self._language_swift_localizedString(forKey: key, value: value, table: tableName)
         }
         
         let bundle = self.bundle(for: language)

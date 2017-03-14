@@ -8,9 +8,10 @@
 
 import Foundation
 
+///Represents a langauge formed by code, script and region
 public struct Language {
     
-    public let id: String   //code-script-region; code-region; code-script; code
+    public let id: String           //code-script-region; code-region; code-script; code
     
     //designators
     public let code: String         //2-3 chars: en, bg, fr
@@ -28,7 +29,16 @@ public struct Language {
 
 extension Language {
     
-    ///Do not use for custom languages, or have in mind that region is restricted to 2 chars for `code-region` `code-script` cases
+    /**
+     
+     Creates an instance of the receiver by parsing a language id into designators.
+     
+     - parameter id: The language id in one of the following forms - `code-script-region`, `code-region`, `code-script`, `code`.
+     
+     - warning: Do not use for custom languages, or have in mind that region is restricted to 2 chars for `code-region`, `code-script` cases.
+     
+     - note: For custom languages - use `init(code:region:script)`
+     */
     public init(id: String) {
         
         let id = id.replacingOccurrences(of: "_", with: "-")
@@ -42,26 +52,28 @@ extension Language {
         
         switch components.count {
             
-        case 3:
-            region = components[2]
-            fallthrough
-        case 2:
+            //the 3rd components is always region
+            case 3:
+                region = components[2]
+                fallthrough
             
-            if region == nil && components[1].utf8.count == 2  {
+            //the second components could be either 2 chars region or a script
+            case 2:
                 
-                region = components[1]
-            }
-            else {
+                if region == nil && components[1].utf8.count == 2  {
+                    
+                    region = components[1]
+                }
+                else {
+                    
+                    script = components[1]
+                }
                 
-                script = components[1]
-            }
+                fallthrough
             
-            
-            
-            fallthrough
-            
-        default:
-            code = components[0]
+            //the first component is always the code
+            default:
+                code = components[0]
         }
         
         self.init(id: id, code: code, script: script, region: region)
@@ -70,6 +82,7 @@ extension Language {
 
 extension Language {
     
+    ///Creates an instance of the receiver for with a code, script and region
     public init(code: String, script: String? = nil, region: String? = nil) {
         
         //create id

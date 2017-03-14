@@ -32,55 +32,43 @@ class MHLocalizationKitTests: XCTestCase {
         
         let languages: [Language] = ["en", "en-US", "en_US", "en-GB", "bg", "az-Cyrl-AZ", "az-Cyrl", "az-AZ", "az"]
         
-        ;{
+        languages.forEach {
             
-            $0.forEach {
-                
-                Bundle.language = $0
-                let bundle = Bundle(for: type(of: self))
-                
-                XCTAssertEqual(bundle.localizedString(forKey: "test value", value: nil, table: nil), $0.id)
-            }
+            Bundle.language = $0
+            let bundle = Bundle(for: type(of: self))
             
-        }(languages)
+            XCTAssertEqual(bundle.localizedString(forKey: "test value", value: nil, table: nil), $0.id)
+        }
     }
     
     func testLocalizedStringFromTable() {
         
         let languages: [Language] = ["en", "en-US", "en_US"]
         
-        ;{
+        languages.forEach {
             
-            $0.forEach {
-                
-                Bundle.language = $0
-                let bundle = Bundle(for: type(of: self))
-                
-                XCTAssertEqual(bundle.localizedString(forKey: "test value in custom table", value: nil, table: "TestTable"), $0.id)
-            }
+            Bundle.language = $0
+            let bundle = Bundle(for: type(of: self))
             
-        }(languages)
+            XCTAssertEqual(bundle.localizedString(forKey: "test value in custom table", value: nil, table: "TestTable"), $0.id)
+        }
     }
     
     func testUntranslatedStrings() {
         
         let languages: [Language] = ["de"]
         
-        ;{
+        languages.forEach {
             
-            $0.forEach {
-                
-                Bundle.language = $0
-                let bundle = Bundle(for: type(of: self))
-                
-                XCTAssertEqual(bundle.localizedString(forKey: "value that is not translated", value: nil, table: nil), "value that is not translated")
-                XCTAssertEqual(bundle.localizedString(forKey: "value that is not translated", value: nil, table: "TestTable"), "value that is not translated")
-                
-                XCTAssertEqual(bundle.localizedString(forKey: "value that is not translated", value: "zz1", table: nil), "zz1")
-                XCTAssertEqual(bundle.localizedString(forKey: "value that is not translated", value: "zz2", table: "TestTable"), "zz2")
-            }
+            Bundle.language = $0
+            let bundle = Bundle(for: type(of: self))
             
-        }(languages)
+            XCTAssertEqual(bundle.localizedString(forKey: "value that is not translated", value: nil, table: nil), "value that is not translated")
+            XCTAssertEqual(bundle.localizedString(forKey: "value that is not translated", value: nil, table: "TestTable"), "value that is not translated")
+            
+            XCTAssertEqual(bundle.localizedString(forKey: "value that is not translated", value: "zz1", table: nil), "zz1")
+            XCTAssertEqual(bundle.localizedString(forKey: "value that is not translated", value: "zz2", table: "TestTable"), "zz2")
+        }
     }
     
     func testNilLanguageString() {
@@ -96,18 +84,5 @@ class MHLocalizationKitTests: XCTestCase {
         
         XCTAssertEqual(bundle.localizedString(forKey: "value that is not translated", value: "zz1", table: nil), "zz1")
         XCTAssertEqual(bundle.localizedString(forKey: "value that is not translated", value: "zz2", table: "TestTable"), "zz2")
-    }
-    
-    func testLanguageLookup() {
-        
-        XCTAssertEqual(LanguageLookup("en_GB", defaultLanguage: "bg", supportedLanguages: ["fr", "en", "en-GB", "en_US", "bg"]), "en-GB")
-        XCTAssertEqual(LanguageLookup("en_GB", defaultLanguage: "bg", supportedLanguages: ["fr", "de", "en-US", "en", "bg"]), "en_US")
-        XCTAssertEqual(LanguageLookup("en_GB", defaultLanguage: "bg", supportedLanguages: ["fr", "de", "en", "en-US", "bg"]), "en")
-        XCTAssertEqual(LanguageLookup("en_GB", defaultLanguage: "bg", supportedLanguages: ["fr", "de", "bg"]), "bg")
-        
-        XCTAssertEqual(Array<Language>(["fr", "en", "en-GB", "en_US", "bg"]).indexOfLanguage("fr"), 0)
-        XCTAssertEqual(Array<Language>(["fr", "en-GB", "en_US", "bg"]).indexOfLanguage("en"), 1)
-        XCTAssertEqual(Array<Language>(["fr", "en", "en-GB", "en_US", "bg"]).indexOfLanguage("de"), nil)
-        XCTAssertEqual(Array<Language>(["fr", "en", "en-GB", "en_US", "bg"]).indexOfLanguage("en-US"), 3)
-    }
+    }    
 }

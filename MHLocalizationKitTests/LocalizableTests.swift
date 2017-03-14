@@ -79,14 +79,14 @@ private class TestLocalizableViewController: UIViewController, Localizable {
     fileprivate var languageWillChange: ((_ obj: TestLocalizableViewController, _ newLanguage: Language?) -> Void)?
     fileprivate var languageDidChange: ((_ obj: TestLocalizableViewController, _ oldLanguage: Language?, _ newLanguage: Language?) -> Void)?
     
-    fileprivate func languageWillChange(_ newLanguage: Language?) {
+    fileprivate func languageWillChange(to new: Language?) {
         
-        self.languageWillChange?(self, newLanguage)
+        self.languageWillChange?(self, new)
     }
     
-    fileprivate func languageDidChange(_ oldLanguage: Language?, newLanguage: Language?) {
+    fileprivate func languageDidChange(from old: Language?, to new: Language?) {
         
-        self.languageDidChange?(self, oldLanguage, newLanguage)
+        self.languageDidChange?(self, old, new)
     }
     
     func reset(_ expectedOldLanguage: Language? = nil, expectedNewLanguage: Language? = nil) {

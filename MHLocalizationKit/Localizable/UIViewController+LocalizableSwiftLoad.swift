@@ -25,7 +25,7 @@ extension UIViewController {
         if let localizable = self as? Localizable {
             
             LocalizableObserver(localizable: localizable).associate()
-            localizable.languageDidChange(nil, newLanguage: nil)
+            localizable.languageDidChange(from: nil, to: nil)
         }
     }
 }
