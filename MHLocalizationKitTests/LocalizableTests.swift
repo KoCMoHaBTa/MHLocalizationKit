@@ -42,7 +42,7 @@ class LocalizableTests: XCTestCase {
             
             self.localizableObject.languageWillChange = { (obj: TestLocalizableViewController, newLanguage: Language?) -> Void in
                 
-                print("languageWillChange: \(obj.expectedNewLanguage) == \(newLanguage)")
+                print("languageWillChange: \(String(describing: obj.expectedNewLanguage)) == \(String(describing: newLanguage))")
                 XCTAssertEqual(obj.expectedNewLanguage, newLanguage)
             }
             
