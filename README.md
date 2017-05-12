@@ -4,7 +4,7 @@
 [method swizzling]:
 https://www.google.bg/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwiC5POo3dbSAhWF1hoKHSWuAswQFggaMAA&url=http%3A%2F%2Fnshipster.com%2Fmethod-swizzling%2F&usg=AFQjCNGmVmqs_9prQvsgkkXKW2lT5HM-YA
 
-MHLocalizationKit is an utility and infrastructure library that can be used for runtime langauge changes by modifying the behavior of the standard iOS localization system and using the same translation resources.
+MHLocalizationKit is an utility and infrastructure library that can be used for runtime language changes by modifying the behavior of the standard iOS localization system and using the same translation resources.
 
 In short - you continue to use `.strings` files and `NSLocalizedString` macros/functions with the ability to specify and change the language at runtime.
 
