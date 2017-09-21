@@ -30,10 +30,13 @@ class LocalizableObserver: NSObject {
     
     func associate() {
         
-        objc_setAssociatedObject(self.localizable, &_associatedKey, self, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        if let localizable = self.localizable {
+            
+            objc_setAssociatedObject(localizable, &_associatedKey, self, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
     }
     
-    private dynamic func receivedLanguageWillChange(_ notification: Notification) {
+    @objc private dynamic func receivedLanguageWillChange(_ notification: Notification) {
      
         var newLanguage: Language?
         
@@ -45,7 +48,7 @@ class LocalizableObserver: NSObject {
         self.localizable?.languageWillChange(to: newLanguage)
     }
     
-    private dynamic func receivedLanguageDidChange(_ notification: Notification) {
+    @objc private dynamic func receivedLanguageDidChange(_ notification: Notification) {
         
         var oldLanguage: Language?
         var newLanguage: Language?

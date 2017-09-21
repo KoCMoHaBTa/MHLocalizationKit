@@ -10,15 +10,15 @@ import Foundation
 
 extension UIViewController {
     
-    public class func _localizable_swift_load() {
+    @objc public class func _localizable_swift_load() {
         
         let original = class_getInstanceMethod(self, #selector(UIViewController.viewDidLoad))
         let modified = class_getInstanceMethod(self, #selector(UIViewController._localizable_viewDidLoad))
         
-        method_exchangeImplementations(original, modified)
+        method_exchangeImplementations(original!, modified!)
     }
     
-    public func _localizable_viewDidLoad() {
+    @objc public func _localizable_viewDidLoad() {
         
         self._localizable_viewDidLoad()
         
