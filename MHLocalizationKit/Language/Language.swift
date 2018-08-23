@@ -9,6 +9,7 @@
 import Foundation
 
 ///Represents a langauge formed by code, script and region
+//https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html
 public struct Language {
     
     public let id: String           //code-script-region; code-region; code-script; code
