@@ -81,7 +81,7 @@ extension Bundle {
         return self.currentSystemLocale != self.savedSystemLocale
     }
     
-    private static let applicationDidBecomeActiveObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil, using: { (notification) -> Void in
+    private static let applicationDidBecomeActiveObserver = NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil, using: { (notification) -> Void in
         
         Bundle.updateTracking()
     })
