@@ -1,5 +1,5 @@
 # MHLocalizationKit
-[![Build Status](https://www.bitrise.io/app/30c4f76c994e2aca.svg?token=KKyPMOYgvonCprz41SeoKg&branch=master)](https://www.bitrise.io/app/30c4f76c994e2aca)
+[![Build Status](https://app.bitrise.io/app/a71104b9ca60c8dc/status.svg?token=DSPum5gnwY2pbUR8gZonpQ&branch=master)](https://app.bitrise.io/app/a71104b9ca60c8dc)
 
 [method swizzling]:
 https://www.google.bg/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwiC5POo3dbSAhWF1hoKHSWuAswQFggaMAA&url=http%3A%2F%2Fnshipster.com%2Fmethod-swizzling%2F&usg=AFQjCNGmVmqs_9prQvsgkkXKW2lT5HM-YA
