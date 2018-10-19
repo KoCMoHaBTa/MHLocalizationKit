@@ -60,7 +60,6 @@
 		30F1D4E51C8E272A004FEBE5 /* MHLocalizationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MHLocalizationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F1D4E81C8E272A004FEBE5 /* MHLocalizationKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHLocalizationKit.h; sourceTree = "<group>"; };
 		30F1D4EA1C8E272A004FEBE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		30F1D4F01C8E274D004FEBE5 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		30F1D4F11C8E274D004FEBE5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		30F1D4FB1C8E28A4004FEBE5 /* MHLocalizationKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHLocalizationKit.swift; sourceTree = "<group>"; };
 		30F1D5111C8F8E6A004FEBE5 /* NSBundle+SystemTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSBundle+SystemTracking.swift"; sourceTree = "<group>"; };
@@ -82,6 +81,7 @@
 		30F1D5451C8F9B10004FEBE5 /* LanguageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageTests.swift; sourceTree = "<group>"; };
 		30F1D5471C8F9B21004FEBE5 /* NSBundleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSBundleTests.swift; sourceTree = "<group>"; };
 		30F1D5491C8F9B2C004FEBE5 /* LocalizableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizableTests.swift; sourceTree = "<group>"; };
+		E648E8F9217A2BE400FC15BA /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				30F1D4F11C8E274D004FEBE5 /* README.md */,
-				30F1D4F01C8E274D004FEBE5 /* LICENSE.md */,
+				E648E8F9217A2BE400FC15BA /* LICENSE */,
 				30F1D4E71C8E272A004FEBE5 /* MHLocalizationKit */,
 				30F1D5261C8F8F56004FEBE5 /* MHLocalizationKitTests */,
 				30F1D4E61C8E272A004FEBE5 /* Products */,
