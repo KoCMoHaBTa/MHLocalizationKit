@@ -82,6 +82,7 @@
 		30F1D5471C8F9B21004FEBE5 /* NSBundleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSBundleTests.swift; sourceTree = "<group>"; };
 		30F1D5491C8F9B2C004FEBE5 /* LocalizableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizableTests.swift; sourceTree = "<group>"; };
 		E648E8F9217A2BE400FC15BA /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		E69BD70921FC662D00605684 /* MHLocalizationKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = MHLocalizationKit.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +109,7 @@
 			children = (
 				30F1D4F11C8E274D004FEBE5 /* README.md */,
 				E648E8F9217A2BE400FC15BA /* LICENSE */,
+				E69BD70921FC662D00605684 /* MHLocalizationKit.podspec */,
 				30F1D4E71C8E272A004FEBE5 /* MHLocalizationKit */,
 				30F1D5261C8F8F56004FEBE5 /* MHLocalizationKitTests */,
 				30F1D4E61C8E272A004FEBE5 /* Products */,
