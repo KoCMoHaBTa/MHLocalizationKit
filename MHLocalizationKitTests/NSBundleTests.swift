@@ -80,7 +80,7 @@ class NSBundleTests: XCTestCase {
                 var o1: NSObjectProtocol!
                 o1 = NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: Bundle.LanguageWillChangeNotificationName), object: nil, queue: nil, using: { (notification) -> Void in
                     
-                    NotificationCenter.default.removeObserver(o1, name: NSNotification.Name(rawValue: Bundle.LanguageWillChangeNotificationName), object: nil)
+                    NotificationCenter.default.removeObserver(o1!, name: NSNotification.Name(rawValue: Bundle.LanguageWillChangeNotificationName), object: nil)
                     
                     XCTAssertNotNil(notification)
                     XCTAssertNotNil((notification as NSNotification).userInfo)
@@ -93,7 +93,7 @@ class NSBundleTests: XCTestCase {
                 var o2: NSObjectProtocol!
                 o2 = NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: Bundle.LanguageDidChangeNotificationName), object: nil, queue: nil, using: { (notification) -> Void in
                     
-                    NotificationCenter.default.removeObserver(o2, name: NSNotification.Name(rawValue: Bundle.LanguageDidChangeNotificationName), object: nil)
+                    NotificationCenter.default.removeObserver(o2!, name: NSNotification.Name(rawValue: Bundle.LanguageDidChangeNotificationName), object: nil)
                     
                     XCTAssertNotNil(notification)
                     XCTAssertNotNil((notification as NSNotification).userInfo)
