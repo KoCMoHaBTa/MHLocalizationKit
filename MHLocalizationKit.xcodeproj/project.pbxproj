@@ -83,6 +83,7 @@
 		30F1D5491C8F9B2C004FEBE5 /* LocalizableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizableTests.swift; sourceTree = "<group>"; };
 		E648E8F9217A2BE400FC15BA /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		E69BD70921FC662D00605684 /* MHLocalizationKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = MHLocalizationKit.podspec; sourceTree = "<group>"; };
+		E6C767D423322D6600C10BAB /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +108,7 @@
 		30F1D4DB1C8E272A004FEBE5 = {
 			isa = PBXGroup;
 			children = (
+				E6C767D423322D6600C10BAB /* .gitignore */,
 				30F1D4F11C8E274D004FEBE5 /* README.md */,
 				E648E8F9217A2BE400FC15BA /* LICENSE */,
 				E69BD70921FC662D00605684 /* MHLocalizationKit.podspec */,
@@ -430,6 +432,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -482,6 +485,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
