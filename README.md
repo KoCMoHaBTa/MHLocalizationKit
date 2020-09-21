@@ -42,12 +42,8 @@ Add `pod 'MHLocalizationKit'` to your  `Podfile`
 - when your app launches - set the desired value to `Bundle.language` - this will call `languageDidChange(from:to:)` on all alive view controllers that conform to the `Localizable` protocol.
 
 ### NSLocalizedString functions
-In Swift the `NSLocalizedString` macros are not available, but instead there is only single `NSLocalizedString` function that provies the same behaviour with default arguments - `genstrings` is not able to parse it properly.
 
-In order to solve this issue, this framework introduces, as substitute, the following Swift overloads that are parsed by `genstrings` correctly:
-
-- `NSLocalizedStringFromTable(_:_:_:)`
-- `NSLocalizedStringWithDefaultValue(_:_:_:_:_:)`
+As of Xcode 11, `genstrings` now works with the swift version of `NSLocalizedString`, so the overload functions has been removed due to their incompatibility with the updated `genstrings`.
 
 ### Details
 The language setting is persisted between application launches.
